@@ -12,15 +12,11 @@ const AddtoCartBTn=document.querySelectorAll(".Items")[0];
 
 let count=0; 
 decreasingButton.addEventListener("click", function(e){
-    if(count>=0){
-        count=0;
-    }
     e.stopPropagation();
     count--;
     if(count>=0){
         showHereDiv1.innerHTML=count;
     }
-
     onlyCahngeInValue1(count);
 })
 
@@ -28,23 +24,22 @@ increasingButton.addEventListener("click", function(e){
     e.stopPropagation();
     count++;
     showHereDiv1.innerHTML=count;
-    onlyCahngeInValue1(count,showHereDiv1);
+    onlyCahngeInValue1(count);
 })
 
 decreasingButton1.addEventListener("click", function(e){
-    
     e.stopPropagation();
     count--;
     if(count>=0){
         showHereDiv2.innerHTML=count;
     }
-    onlyCahngeInValue2(count ,showHereDiv1);
+    // onlyCahngeInValue2(count ,showHereDiv1);
 })
 increasingButton1.addEventListener("click", function(e){
     e.stopPropagation();
     count++;
     showHereDiv2.innerHTML=count;
-    onlyCahngeInValue2(count ,showHereDiv1);
+    // onlyCahngeInValue2(count ,showHereDiv1);
 })
 
 decreasingButton2.addEventListener("click", function(e){
@@ -103,9 +98,12 @@ function AddCart(product,val,amount){
     
 }
 
-function onlyCahngeInValue1(count ){ 
-    const spans = document.querySelector('.span');
-   spans.innerHTML=count+"*"+"100";
+function onlyCahngeInValue1(count){ 
+    if(count>=0){
+        const spans = document.querySelector('.span');
+        spans.innerHTML=count+"*"+"100";
+    }
+    
 }
 function onlyCahngeInValue2(count ){ 
     const spans = document.querySelector('.span');
